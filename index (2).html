@@ -1,0 +1,262 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دليلك للدراسة في الجامعات الخاصة التركية مع Studivas">
+        <meta name="keywords" content="دراسة في تركيا, جامعات تركية, قبول جامعي, تعليم دولي">
+    <title> Studivas - دليل الدراسة في تركيا</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .hero { background: url('https://source.unsplash.com/1600x900/?istanbul,university') no-repeat center center; background-size: cover; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .navbar { background-color: #003087; }
+        .navbar-brand, .nav-link { color: white !important; }
+        .section { padding: 50px 0; }
+        footer { background-color: #003087; color: white; padding: 20px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Studivas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">من نحن</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-turkey">لماذا تركيا؟</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">خدماتنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#universities">الجامعات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">الأسئلة الشائعة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero py-5 text-center">
+        <div class="container">
+            <h1>دليلك للدراسة في الجامعات الخاصة التركية</h1>
+            <p class="lead">خدمات التسجيل – مميزات الجامعات – الحياة الطلابية – أهم الجامعات في إسطنبول</p>
+            <a href="#contact" class="btn btn-primary btn-lg">ابدأ الآن</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>من نحن؟</h2>
+            <p>نحن نعمل على مساعدة الطلاب الدوليين الراغبين في استكمال دراستهم الجامعية في تركيا، وذلك من خلال:</p>
+            <ul>
+                <li>تقديم استشارات مجانية لاختيار التخصص والجامعة المناسبة.</li>
+                <li>تسهيل إجراءات التسجيل وضمان القبول في الجامعات الخاصة التركية.</li>
+                <li>متابعة الطالب من لحظة القبول وحتى الاستقرار في السكن وبدء الدراسة.</li>
+                <li>توفير شراكات مع وكلاء من مختلف الدول لتسهيل وصول الطلاب.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Why Turkey Section -->
+    <section id="why-turkey" class="section bg-light">
+        <div class="container">
+            <h2>لماذا الدراسة في تركيا؟</h2>
+            <h3>جودة التعليم والاعتراف الدولي</h3>
+            <ul>
+                <li>تركيا تحتل المرتبة الثانية عالميًا من حيث معدلات الالتحاق بالتعليم العالي بنسبة 94.2%.</li>
+                <li>تركيا جزء من منطقة التعليم العالي الأوروبية وتطبق نظام بولونيا.</li>
+                <li>الجامعات التركية تعتمد نظام ECTS الأوروبي وتمنح ملحق دبلوم دولي.</li>
+                <li>فرص المشاركة في برامج التبادل مثل Erasmus+، Mevlana، Farabi.</li>
+            </ul>
+            <h3>تنوع الجامعات والبرامج</h3>
+            <ul>
+                <li>يوجد في تركيا أكثر من 200 جامعة وما يقارب 60,000 برنامج.</li>
+                <li>خيارات متعددة تناسب مختلف التخصصات والميزانيات.</li>
+            </ul>
+            <h3>بيئة متعددة الثقافات</h3>
+            <ul>
+                <li>تركيا بلد غني بالحضارات والثقافات، ما يجعلها بيئة آمنة ومفتوحة.</li>
+                <li>المجتمع التركي ودود ومتسامح مع الطلاب الأجانب.</li>
+            </ul>
+            <h3>طبيعة وحياة متنوعة</h3>
+            <ul>
+                <li>من الشواطئ إلى الجبال، مناخ متنوع وأنشطة طلابية غنية.</li>
+                <li>إمكانية ممارسة الرياضات المختلفة على مدار العام.</li>
+            </ul>
+            <h3>جامعات عصرية</h3>
+            <ul>
+                <li>معظم الجامعات التركية الخاصة مجهزة بتقنيات حديثة، مختبرات، مكتبات رقمية.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Living Conditions & Tuition Fees -->
+    <section id="living-costs" class="section">
+        <div class="container">
+            <h2>ظروف المعيشة وتكاليف الدراسة</h2>
+            <h3>ظروف المعيشة</h3>
+            <ul>
+                <li>تكلفة المعيشة في تركيا أقل مقارنة بدول أوروبا وأمريكا.</li>
+                <li>سكن جامعي أو شقق طلابية بأسعار مقبولة.</li>
+                <li>تخفيضات للطلاب في المواصلات والترفيه.</li>
+            </ul>
+            <h3>الرسوم الدراسية</h3>
+            <ul>
+                <li>الجامعات الحكومية: 100–4000 يورو سنويًا.</li>
+                <li>الجامعات الخاصة: 3000–20,000 يورو حسب التخصص.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section id="requirements" class="section bg-light">
+        <div class="container">
+            <h2>متطلبات الطالب الدولي</h2>
+            <h3>تأشيرة الطالب</h3>
+            <ul>
+                <li>خطاب قبول من الجامعة.</li>
+                <li>جواز سفر ساري، صور شخصية، تأمين صحي وسفر.</li>
+                <li>إثبات القدرة المالية.</li>
+            </ul>
+            <h3>تصريح الإقامة</h3>
+            <ul>
+                <li>يجب التقدم لإقامة طلابية سنوية قابلة للتجديد.</li>
+                <li>جواز السفر، خطاب القبول، صور شخصية، إثبات السكن.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Universities Section -->
+    <section id="universities" class="section">
+        <div class="container">
+            <h2>مميزات الجامعات الخاصة في إسطنبول</h2>
+            <h3>أهم الجامعات الخاصة</h3>
+            <ul>
+                <li>جامعة بهتشه شهير: برامج طبية وهندسية قوية.</li>
+                <li>جامعة ألتن باش: تميز في طب الأسنان والصيدلة.</li>
+                <li>جامعة غليشيم: ترتيب عالمي متقدم.</li>
+                <li>جامعة أوزيجين: إدارة الأعمال والطيران.</li>
+                <li>جامعة قادر هاس: سمعة أكاديمية متميزة.</li>
+            </ul>
+            <h3>مميزات عامة</h3>
+            <ul>
+                <li>اعتراف دولي واسع.</li>
+                <li>برامج باللغة الإنجليزية أو التركية.</li>
+                <li>تركيز على التدريب العملي وسوق العمل.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <h2>خدماتنا</h2>
+            <h3>للطلاب</h3>
+            <ul>
+                <li>استشارات مجانية لاختيار التخصص.</li>
+                <li>متابعة إجراءات القبول والتسجيل.</li>
+                <li>توفير خصومات في بعض الجامعات.</li>
+                <li>المساعدة في استخراج الفيزا والإقامة.</li>
+            </ul>
+            <h3>للوكلاء والشركاء</h3>
+            <ul>
+                <li>عمولات على كل تسجيل ناجح.</li>
+                <li>توفير مواد تسويقية.</li>
+                <li>متابعة مباشرة مع الطلاب المحالين.</li>
+                <li>دعم إداري وتقارير دورية.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>الأسئلة الشائعة</h2>
+            <h4>هل الشهادة معترف بها في بلدي؟</h4>
+            <p>معظم الجامعات التركية الخاصة معترف بها دوليًا...</p>
+            <h4>هل أستطيع الدراسة باللغة الإنجليزية؟</h4>
+            <p>نعم، العديد من الجامعات تقدم برامج كاملة بالإنجليزية...</p>
+            <h4>كم تكلفة المعيشة شهريًا؟</h4>
+            <p>تتراوح بين 300–600 دولار شهريًا...</p>
+            <h4>هل يوجد منح؟</h4>
+            <p>بعض الجامعات تقدم منح جزئية أو خصومات...</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2>اتصل بنا</h2>
+            <form action="https://formspree.io/f/<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduwq2WwxZgQ1fgZVzH8S8iOeJFQ7sZgJhP0xBTO_GjHyjtbg/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0">جارٍ التحميل…</iframe>
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">رقم الواتس اب</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">رسالتك</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال</button>
+                </form>
+                <p class="mt-3">📲 واتساب:05514806979</p>
+                <p>📧 البريد:studivas1@gmail.com</p>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>© 2025 Studivas. جميع الحقوق محفوظة.</p>
+            <a href="privacy.html">سياسة الخصوصية</a> | <a href="terms.html">شروط الاستخدام</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

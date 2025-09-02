@@ -7,20 +7,29 @@
     <meta name="keywords" content="دراسة في تركيا, جامعات تركية, قبول جامعي, تعليم دولي">
     <title>Studivas - دليل الدراسة في تركيا</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
-        .hero { background: url('https://source.unsplash.com/1600x900/?istanbul,university') no-repeat center center; background-size: cover; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); padding: 100px 0; }
-        .navbar { background-color: #003087; }
+        .navbar { background-color: #003087; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         .navbar-brand img, .nav-link { color: white !important; }
-        .section { padding: 60px 0; }
-        footer { background-color: #003087; color: white; padding: 30px 0; text-align: center; }
-        .why-turkey { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 40px; }
-        .why-turkey img { max-width: 100%; height: auto; border-radius: 10px; }
+        .carousel { height: 500px; }
+        .carousel-inner { height: 100%; }
+        .carousel-item { height: 100%; background-size: cover; background-position: center; }
+        .carousel-item:nth-child(1) { background-image: url('https://source.unsplash.com/1600x900/?istanbul,university'); }
+        .carousel-item:nth-child(2) { background-image: url('https://source.unsplash.com/1600x900/?turkey,campus'); }
+        .carousel-item:nth-child(3) { background-image: url('https://source.unsplash.com/1600x900/?turkey,students'); }
+        .carousel-caption { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px; }
+        .section { padding: 80px 0; }
+        .why-turkey { background-color: #fff; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .why-turkey img { width: 100%; border-radius: 15px; }
+        .card-why { border: none; background: #e9ecef; border-radius: 10px; margin: 10px 0; }
         .steps-section { background-color: #e9ecef; }
-        .step-card { text-align: center; padding: 20px; border: 1px solid #ddd; border-radius: 10px; margin: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .step-card { background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; padding: 20px; margin: 15px 0; }
+        .step-card i { font-size: 2em; color: #003087; margin-bottom: 10px; }
         .embed-responsive { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; margin-bottom: 20px; }
-        .embed-responsive .embed-responsive-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        @media (max-width: 768px) { .embed-responsive { padding-bottom: 75%; } .hero { padding: 60px 0; } }
+        .embed-responsive .embed-responsive-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        footer { background-color: #003087; color: white; padding: 40px 0; text-align: center; }
+        @media (max-width: 768px) { .carousel { height: 300px; } .embed-responsive { padding-bottom: 75%; } }
     </style>
 </head>
 <body>
@@ -48,12 +57,38 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero text-center">
-        <div class="container">
-            <h1>دليلك للدراسة في الجامعات الخاصة التركية</h1>
-            <p class="lead">خدمات التسجيل – مميزات الجامعات – الحياة الطلابية – أهم الجامعات في إسطنبول</p>
-            <a href="#contact" class="btn btn-primary btn-lg">ابدأ الآن</a>
+    <section id="home" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>دليلك للدراسة في الجامعات الخاصة التركية</h1>
+                    <p class="lead">خدمات التسجيل – مميزات الجامعات – الحياة الطلابية</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">ابدأ الآن</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>استكشف جامعات إسطنبول</h1>
+                    <p class="lead">مع Studivas، خطوة واحدة لمستقبلك الأكاديمي</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">تواصل معنا</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>حياة طلابية مميزة</h1>
+                    <p class="lead">نقدم الدعم الكامل لتحقيق أهدافك</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">اطلب استشارة</a>
+                </div>
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </section>
 
     <!-- About Section -->
@@ -73,38 +108,84 @@
     <!-- Why Turkey Section -->
     <section id="why-turkey" class="section why-turkey">
         <div class="container">
-            <div class="row align-items-center">
+            <h2>لماذا الدراسة في تركيا؟</h2>
+            <div class="row">
                 <div class="col-md-6">
-                    <h2>لماذا الدراسة في تركيا؟</h2>
-                    <h3>جودة التعليم والاعتراف الدولي</h3>
-                    <ul>
-                        <li>تركيا تحتل المرتبة الثانية عالميًا من حيث معدلات الالتحاق بالتعليم العالي بنسبة 94.2%.</li>
-                        <li>تركيا جزء من منطقة التعليم العالي الأوروبية وتطبق نظام بولونيا.</li>
-                        <li>الجامعات التركية تعتمد نظام ECTS الأوروبي وتمنح ملحق دبلوم دولي.</li>
-                        <li>فرص المشاركة في برامج التبادل مثل Erasmus+، Mevlana، Farabi.</li>
-                    </ul>
-                    <h3>تنوع الجامعات والبرامج</h3>
-                    <ul>
-                        <li>يوجد في تركيا أكثر من 200 جامعة وما يقارب 60,000 برنامج.</li>
-                        <li>خيارات متعددة تناسب مختلف التخصصات والميزانيات.</li>
-                    </ul>
-                    <h3>بيئة متعددة الثقافات</h3>
-                    <ul>
-                        <li>تركيا بلد غني بالحضارات والثقافات، ما يجعلها بيئة آمنة ومفتوحة.</li>
-                        <li>المجتمع التركي ودود ومتسامح مع الطلاب الأجانب.</li>
-                    </ul>
-                    <h3>طبيعة وحياة متنوعة</h3>
-                    <ul>
-                        <li>من الشواطئ إلى الجبال، مناخ متنوع وأنشطة طلابية غنية.</li>
-                        <li>إمكانية ممارسة الرياضات المختلفة على مدار العام.</li>
-                    </ul>
-                    <h3>جامعات عصرية</h3>
-                    <ul>
-                        <li>معظم الجامعات التركية الخاصة مجهزة بتقنيات حديثة، مختبرات، مكتبات رقمية.</li>
-                    </ul>
+                    <img src="https://source.unsplash.com/800x600/?turkey,landscape" alt="مناظر تركيا" class="img-fluid">
                 </div>
                 <div class="col-md-6">
-                    <img src="https://source.unsplash.com/800x400/?turkey,landscape" alt="مناظر تركيا" class="img-fluid rounded">
+                    <div class="card-why mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">جودة التعليم والاعتراف الدولي</h3>
+                            <ul>
+                                <li>تركيا تحتل المرتبة الثانية عالميًا بنسبة 94.2%.</li>
+                                <li>نظام بولونيا وECTS مع ملحق دبلوم دولي.</li>
+                                <li>برامج تبادل مثل Erasmus+ وMevlana.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-why mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">تنوع الجامعات والبرامج</h3>
+                            <ul>
+                                <li>أكثر من 200 جامعة و60,000 برنامج.</li>
+                                <li>خيارات تناسب التخصصات والميزانيات.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-why">
+                        <div class="card-body">
+                            <h3 class="card-title">بيئة متعددة الثقافات</h3>
+                            <ul>
+                                <li>بيئة آمنة ومفتوحة غنية بالحضارات.</li>
+                                <li>مجتمع ودود مع الطلاب الأجانب.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps" class="section steps-section">
+        <div class="container">
+            <h2>خطوات التقديم مع Studivas</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <i class="fas fa-search"></i>
+                        <h3>1</h3>
+                        <p>اختر التخصص والجامعة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h3>2</h3>
+                        <p>تعرف على المنح والخصومات.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>3</h3>
+                        <p>أعد الوثائق المطلوبة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <i class="fas fa-check"></i>
+                        <h3>4</h3>
+                        <p>تحقق من المتطلبات.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <i class="fas fa-passport"></i>
+                        <h3>5</h3>
+                        <p>تقدم لتأشيرة الطالب.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,7 +290,7 @@
             <h2>اتصل بنا</h2>
             <p class="text-center">املأ النموذج أدناه للاستفسار عن خدماتنا في الدراسة بتركيا. سنرد عليك في أقرب وقت.</p>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduwq2WwxZgQ1fgZVzH8S8iOeJFQ7sZgJhP0xBTO_GjHyjtbg/viewform?embedded=true" class="embed-responsive-item" style="border: none; border-radius: 10px;" allowfullscreen></iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSduwq2WwxZgQ1fgZVzH8S8iOeJFQ7sZgJhP0xBTO_GjHyjtbg/viewform?embedded=true" class="embed-responsive-item" allowfullscreen></iframe>
             </div>
             <p class="mt-3 text-center">📲 واتساب: <a href="https://wa.me/905514806979" target="_blank">+905514806979</a></p>
             <p class="text-center">📧 البريد الإلكتروني: <a href="mailto:Studivas1@gmail.com">Studivas1@gmail.com</a></p>

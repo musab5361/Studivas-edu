@@ -8,36 +8,19 @@
     <title>Studivas - دليل الدراسة في تركيا</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .hero { background: url('https://source.unsplash.com/1600x900/?istanbul,university') no-repeat center center; background-size: cover; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        .hero { background: url('https://source.unsplash.com/1600x900/?istanbul,university') no-repeat center center; background-size: cover; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); padding: 100px 0; }
         .navbar { background-color: #003087; }
-        .navbar-brand, .nav-link { color: white !important; }
-        .section { padding: 50px 0; }
-        footer { background-color: #003087; color: white; padding: 20px; text-align: center; }
-
-        /* تحسينات للـ iframe لجعل النموذج متجاوب وأنيق */
-        .embed-responsive {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* نسبة 16:9، مثالية للنموذج */
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        .embed-responsive .embed-responsive-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px; /* حدود مستديرة */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* ظل أنيق */
-        }
-        @media (max-width: 768px) {
-            .embed-responsive {
-                padding-bottom: 75%; /* ارتفاع أكبر على الموبايل */
-            }
-        }
+        .navbar-brand img, .nav-link { color: white !important; }
+        .section { padding: 60px 0; }
+        footer { background-color: #003087; color: white; padding: 30px 0; text-align: center; }
+        .why-turkey { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .why-turkey img { max-width: 100%; height: auto; border-radius: 10px; }
+        .steps-section { background-color: #e9ecef; }
+        .step-card { text-align: center; padding: 20px; border: 1px solid #ddd; border-radius: 10px; margin: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .embed-responsive { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; margin-bottom: 20px; }
+        .embed-responsive .embed-responsive-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        @media (max-width: 768px) { .embed-responsive { padding-bottom: 75%; } .hero { padding: 60px 0; } }
     </style>
 </head>
 <body>
@@ -45,8 +28,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-    <img src="logo.png.png" alt="Studivas Logo" style="height: 40px;">
-</a>
+                <img src="logo.png" alt="Studivas Logo" style="height: 40px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -65,7 +48,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero py-5 text-center">
+    <section id="home" class="hero text-center">
         <div class="container">
             <h1>دليلك للدراسة في الجامعات الخاصة التركية</h1>
             <p class="lead">خدمات التسجيل – مميزات الجامعات – الحياة الطلابية – أهم الجامعات في إسطنبول</p>
@@ -88,35 +71,42 @@
     </section>
 
     <!-- Why Turkey Section -->
-    <section id="why-turkey" class="section bg-light">
+    <section id="why-turkey" class="section why-turkey">
         <div class="container">
-            <h2>لماذا الدراسة في تركيا؟</h2>
-            <h3>جودة التعليم والاعتراف الدولي</h3>
-            <ul>
-                <li>تركيا تحتل المرتبة الثانية عالميًا من حيث معدلات الالتحاق بالتعليم العالي بنسبة 94.2%.</li>
-                <li>تركيا جزء من منطقة التعليم العالي الأوروبية وتطبق نظام بولونيا.</li>
-                <li>الجامعات التركية تعتمد نظام ECTS الأوروبي وتمنح ملحق دبلوم دولي.</li>
-                <li>فرص المشاركة في برامج التبادل مثل Erasmus+، Mevlana، Farabi.</li>
-            </ul>
-            <h3>تنوع الجامعات والبرامج</h3>
-            <ul>
-                <li>يوجد في تركيا أكثر من 200 جامعة وما يقارب 60,000 برنامج.</li>
-                <li>خيارات متعددة تناسب مختلف التخصصات والميزانيات.</li>
-            </ul>
-            <h3>بيئة متعددة الثقافات</h3>
-            <ul>
-                <li>تركيا بلد غني بالحضارات والثقافات، ما يجعلها بيئة آمنة ومفتوحة.</li>
-                <li>المجتمع التركي ودود ومتسامح مع الطلاب الأجانب.</li>
-            </ul>
-            <h3>طبيعة وحياة متنوعة</h3>
-            <ul>
-                <li>من الشواطئ إلى الجبال، مناخ متنوع وأنشطة طلابية غنية.</li>
-                <li>إمكانية ممارسة الرياضات المختلفة على مدار العام.</li>
-            </ul>
-            <h3>جامعات عصرية</h3>
-            <ul>
-                <li>معظم الجامعات التركية الخاصة مجهزة بتقنيات حديثة، مختبرات، مكتبات رقمية.</li>
-            </ul>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>لماذا الدراسة في تركيا؟</h2>
+                    <h3>جودة التعليم والاعتراف الدولي</h3>
+                    <ul>
+                        <li>تركيا تحتل المرتبة الثانية عالميًا من حيث معدلات الالتحاق بالتعليم العالي بنسبة 94.2%.</li>
+                        <li>تركيا جزء من منطقة التعليم العالي الأوروبية وتطبق نظام بولونيا.</li>
+                        <li>الجامعات التركية تعتمد نظام ECTS الأوروبي وتمنح ملحق دبلوم دولي.</li>
+                        <li>فرص المشاركة في برامج التبادل مثل Erasmus+، Mevlana، Farabi.</li>
+                    </ul>
+                    <h3>تنوع الجامعات والبرامج</h3>
+                    <ul>
+                        <li>يوجد في تركيا أكثر من 200 جامعة وما يقارب 60,000 برنامج.</li>
+                        <li>خيارات متعددة تناسب مختلف التخصصات والميزانيات.</li>
+                    </ul>
+                    <h3>بيئة متعددة الثقافات</h3>
+                    <ul>
+                        <li>تركيا بلد غني بالحضارات والثقافات، ما يجعلها بيئة آمنة ومفتوحة.</li>
+                        <li>المجتمع التركي ودود ومتسامح مع الطلاب الأجانب.</li>
+                    </ul>
+                    <h3>طبيعة وحياة متنوعة</h3>
+                    <ul>
+                        <li>من الشواطئ إلى الجبال، مناخ متنوع وأنشطة طلابية غنية.</li>
+                        <li>إمكانية ممارسة الرياضات المختلفة على مدار العام.</li>
+                    </ul>
+                    <h3>جامعات عصرية</h3>
+                    <ul>
+                        <li>معظم الجامعات التركية الخاصة مجهزة بتقنيات حديثة، مختبرات، مكتبات رقمية.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://source.unsplash.com/800x400/?turkey,landscape" alt="مناظر تركيا" class="img-fluid rounded">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -214,7 +204,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section bg-light">
+    <section id="contact" class="section">
         <div class="container">
             <h2>اتصل بنا</h2>
             <p class="text-center">املأ النموذج أدناه للاستفسار عن خدماتنا في الدراسة بتركيا. سنرد عليك في أقرب وقت.</p>
@@ -227,7 +217,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer>
         <div class="container">
             <p>© 2025 Studivas. جميع الحقوق محفوظة.</p>
             <a href="privacy.html">سياسة الخصوصية</a> | <a href="terms.html">شروط الاستخدام</a>
